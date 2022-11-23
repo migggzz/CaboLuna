@@ -1,16 +1,43 @@
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
+// Own components
+import ItemList from "./ItemList";
+import { Loading } from "./Loading";
 
+// Mock
+import { Items as item } from "../mocks/item.mock";
 
-function ItemListContainer({greeting = "Item de Tienda"}){
-    return(
-        <div className="card" style={{width: "18rem"}}>
-            <div className="card-body">
-            <h5 className="card-title">{greeting}</h5>
-            <p className="card-text">Aqui va a ir una cosa de venta.</p>
-            <a href="#" className="btn btn-primary">botton para comrpar</a>
-            </div>
-        </div>
-    );
-}
+const ItemListContainer = () => {
+  const { category } = useParams();
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    new Promise((resolve) =>
+      setTimeout(() => {
+        resolve(item);
+      }, 500)
+    ).then((data) => {
+      if (category) {
+        const categories = data.filter(
+          (product) => product.category === category
+        );
+        setProducts(categories);
+      } else {
+        setProducts(data);
+      }
+    });
+  }, [category]);
+
+  if (products.length === 0) {
+    return <Loading/>;
+  }
+
+  return (
+    <div className="h-full">
+      <ItemList products={products} />
+    </div>
+  );
+};
 
 export default ItemListContainer;

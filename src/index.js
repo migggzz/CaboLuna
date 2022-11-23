@@ -3,15 +3,18 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import Navbar from './components/navbar';
-import ItemListContainer from './components/itemListContainer';
+import Navbar from './components/NavBar';
+import ItemListContainer from './components/ItemListContainer';
+import { RouterProvider } from 'react-router-dom';
+import {router} from './router/index'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const navbar1 = ReactDOM.createRoot(document.getElementById('navbar1'));
 const ItemList = ReactDOM.createRoot(document.getElementById('itemListContainer'));
+const poke = ReactDOM.createRoot(document.getElementById('poke'));
 root.render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 

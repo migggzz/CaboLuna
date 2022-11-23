@@ -1,38 +1,112 @@
+import { Link } from "react-router-dom";
+import CartWidget from "./CartWidget";
 
-
-import cartWidget from './cartWidget.svg'
-import cart from './cart.svg'
-
-function Navbar(){
-    return(
-        <>
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <a className="navbar-brand" href="#">Cabo Luna </a>
-            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-             <span className="navbar-toggler-icon"></span>
+const NavbarComponent = () => {
+  return (
+    <nav className="bg-gray-800">
+      <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+        <div className="relative flex h-16 items-center justify-between">
+          <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
+            <button
+              type="button"
+              className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+              aria-controls="mobile-menu"
+              aria-expanded="false"
+            >
+              <span className="sr-only">Open main menu</span>
+              <svg
+                className="block h-6 w-6"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth="1.5"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                />
+              </svg>
+              <svg
+                className="hidden h-6 w-6"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth="1.5"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
             </button>
-            <div className="collapse navbar-collapse" id="navbarText">
-                <ul className="navbar-nav mr-auto">
-                <li className="nav-item active">
-                    <a className="nav-link" href="#">Lineas de Desarrollo <span className="sr-only">(current)</span></a>
-                </li>
-                <li className="nav-item">
-                    <a className="nav-link" href="#">Productos</a>
-                </li>
-                <li className="nav-item">
-                    <a className="nav-link" href="#">Contactanos</a>
-                </li>
-                </ul>
-                <span className="navbar-text">
-                Cabo Luna
-                {cartWidget}
-                </span>
+          </div>
+          <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+            <div className="flex flex-shrink-0 items-center">
+              <button className="text-white font-bold text-2xl">
+                <Link to="/" aria-current="page">
+                  Cabo Luna
+                </Link>
+              </button>
+              
             </div>
-        </nav>
-        </>
-    );
-}
+            
+            <div className=" sm:ml-6 sm:block">
+              <div className="flex space-x-4">
+                
+                <Link
+                  to="/category/:category"
+                  className="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
+                  aria-current="page"
+                >
+                  Productos
+                </Link>
+              </div>
+            </div>
+          </div>
+          <CartWidget />
+        </div>
+      </div>
 
-export default Navbar;
+      <div className="" id="mobile-menu">
+        <div className="space-y-1 px-2 pt-2 pb-3">
+          <a
+            href="/"
+            className="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium"
+            aria-current="page"
+          >
+            Dashboard
+          </a>
 
+          <a
+            href="/"
+            className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+          >
+            Team
+          </a>
 
+          <a
+            href="/"
+            className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+          >
+            Projects
+          </a>
+
+          <a
+            href="/"
+            className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+          >
+            Calendar
+          </a>
+        </div>
+      </div>
+    </nav>
+  );
+};
+
+export default NavbarComponent;
