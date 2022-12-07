@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-const Item = ({ product }) => {
+const Item = ({ product, quantityAdded }) => {
   const navigate = useNavigate();
 
   const description = product.description.slice(0, 30);
@@ -35,7 +35,10 @@ const Item = ({ product }) => {
         <hr className="mb-2" />
         <div className="flex justify-between items-center">
           <span className="font-bold">${product.price}</span>
-          <span className="text-xs">In Stock: {product.stock}</span>
+          <span className="text-xs">
+            {quantityAdded ? "Agregados" : "En Stock"}:{" "}
+            {quantityAdded || product.stock}
+          </span>
         </div>
       </div>
     </div>
@@ -43,3 +46,4 @@ const Item = ({ product }) => {
 };
 
 export default Item;
+
