@@ -2,22 +2,26 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 // Own components
-import ItemList from "./ItemList";
+import { ItemList } from "./ItemList";
 import { Loading } from "./Loading";
 
 // Mock
-import { Items as item } from "../mocks/item.mock";
+import { Items } from "../mocks/items.mock";
 
-const ItemListContainer = () => {
+export const ItemListContainer = () => {
   const { category } = useParams();
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    new Promise((resolve) =>
-      setTimeout(() => {
-        resolve(item);
-      }, 500)
-    ).then((data) => {
+    new Promise((resolve) => {
+      // Reset the state to show the loading spinner
+      setProducts([]);
+
+      // Simulation of a call to an api
+      return setTimeout(() => {
+        resolve(Items);
+      }, 1000);
+    }).then((data) => {
       if (category) {
         const categories = data.filter(
           (product) => product.category === category
@@ -30,7 +34,7 @@ const ItemListContainer = () => {
   }, [category]);
 
   if (products.length === 0) {
-    return <Loading/>;
+    return <Loading />;
   }
 
   return (
@@ -39,5 +43,3 @@ const ItemListContainer = () => {
     </div>
   );
 };
-
-export default ItemListContainer;

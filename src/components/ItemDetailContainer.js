@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import ItemDetail from "./ItemDetail";
 
 import { useParams } from "react-router-dom";
-import { Items } from "../mocks/item.mock";
+import { Items } from "../mocks/items.mock";
 import { Loading } from "./Loading";
 
 const ItemDetailContainer = () => {
@@ -11,8 +11,8 @@ const ItemDetailContainer = () => {
 
   useEffect(() => {
     new Promise((resolve) =>
-      // Simulacion de llamada a una API
-      setTimeout(() => resolve(Items.find((item) => item.id === id)), 1000)
+      // Simula llamada a una api con espera de medio segundo
+      setTimeout(() => resolve(Items.find((item) => item.id === id)), 500)
     ).then((data) => setItem(data));
   }, [id]);
 

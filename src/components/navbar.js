@@ -48,23 +48,30 @@ const NavbarComponent = () => {
           </div>
           <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
             <div className="flex flex-shrink-0 items-center">
-              <button className="text-white font-bold text-2xl">
-                <Link to="/" aria-current="page">
-                  Cabo Luna
-                </Link>
-              </button>
-              
+              <h1 className="text-white font-bold text-2xl">Gamers</h1>
             </div>
-            
-            <div className=" sm:ml-6 sm:block">
+            <div className="hidden sm:ml-6 sm:block">
               <div className="flex space-x-4">
-                
                 <Link
-                  to="/category/:category"
+                  to="/"
                   className="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
                   aria-current="page"
                 >
-                  Productos
+                  Home
+                </Link>
+                <Link
+                  to="/category/keyboard"
+                  className="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
+                  aria-current="page"
+                >
+                  Keyboards
+                </Link>
+                <Link
+                  to="/category/mouse"
+                  className="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
+                  aria-current="page"
+                >
+                  Mouses
                 </Link>
               </div>
             </div>
@@ -73,7 +80,7 @@ const NavbarComponent = () => {
         </div>
       </div>
 
-      <div className="" id="mobile-menu">
+      <div className="sm:hidden" id="mobile-menu">
         <div className="space-y-1 px-2 pt-2 pb-3">
           <a
             href="/"
