@@ -3,7 +3,7 @@ import CartWidget from "./CartWidget";
 
 const NavbarComponent = () => {
   return (
-    <nav className="bg-gray-800">
+    <nav className="bg-green-800">
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div className="relative flex h-16 items-center justify-between">
           <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -48,30 +48,30 @@ const NavbarComponent = () => {
           </div>
           <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
             <div className="flex flex-shrink-0 items-center">
-              <h1 className="text-white font-bold text-2xl">Gamers</h1>
+              <h1 className="text-white font-bold text-2xl">Cabo Luna</h1>
             </div>
-            <div className="hidden sm:ml-6 sm:block">
+            <div className=" sm:ml-6 sm:block">
               <div className="flex space-x-4">
                 <Link
                   to="/"
-                  className="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
+                  className="bg-green-900 text-white px-3 py-2 rounded-md text-sm font-medium"
                   aria-current="page"
                 >
-                  Home
+                  Inicio
                 </Link>
                 <Link
-                  to="/category/keyboard"
-                  className="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
+                  to="/category/CBD-Human"
+                  className="bg-green-900 text-white px-3 py-2 rounded-md text-sm font-medium"
                   aria-current="page"
                 >
-                  Keyboards
+                  CDB-Humanos
                 </Link>
                 <Link
-                  to="/category/mouse"
-                  className="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
+                  to="/category/Dog-CBD"
+                  className="bg-green-900 text-white px-3 py-2 rounded-md text-sm font-medium"
                   aria-current="page"
                 >
-                  Mouses
+                  CBD-Perros
                 </Link>
               </div>
             </div>
@@ -80,36 +80,29 @@ const NavbarComponent = () => {
         </div>
       </div>
 
-      <div className="sm:hidden" id="mobile-menu">
+      <div className="sm:hidden bg-green" id="mobile-menu">
         <div className="space-y-1 px-2 pt-2 pb-3">
-          <a
-            href="/"
-            className="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium"
+          <Link
+            to="/"
+            className="bg-green-900 text-white block px-3 py-2 rounded-md text-base font-medium"
             aria-current="page"
           >
-            Dashboard
-          </a>
+            Home
+          </Link>
 
-          <a
-            href="/"
-            className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+          <Link
+            to="/category/CBD-Human"
+            className="text-green-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
           >
-            Team
-          </a>
+            CBD Humanos
+          </Link>
 
-          <a
-            href="/"
-            className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+          <Link
+            to="/category/Dog-CBD"
+            className="text-green-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
           >
-            Projects
-          </a>
-
-          <a
-            href="/"
-            className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
-          >
-            Calendar
-          </a>
+            CBD Perros
+          </Link>
         </div>
       </div>
     </nav>

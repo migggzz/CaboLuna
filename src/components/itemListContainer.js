@@ -20,7 +20,7 @@ export const ItemListContainer = () => {
       // Simulation of a call to an api
       return setTimeout(() => {
         resolve(Items);
-      }, 1000);
+      }, 500);
     }).then((data) => {
       if (category) {
         const categories = data.filter(
@@ -43,3 +43,5 @@ export const ItemListContainer = () => {
     </div>
   );
 };
+
+export default ItemListContainer;
