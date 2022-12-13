@@ -68,3 +68,51 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+#markdown Tests Below
+
+##lists
+*1
+*2
+*3
+* 4
+* 4
+* 4
+
+*5
+`text`
+```text```
+>otro texto
+sigue en el otro renglon
+
+[google](https://google.com) 
+
+**negritas**
+
+[1,2,3,4,5]
+
+![](https://via.placeholder.com/150)
+
+# Cabo Luna
+
+Este projecto es una e-shop para la marca [CaboLuna](https://Caboluna.com), una empresa que se dedica a la venta de productos especializados de CBD para consumo humano y para mascotas.
+
+## Estructura
+
+se creo el projecto por medio de `npm` utilizando `create-react-app` por lo tanto, si se quiere correr este repo localmente solo se tiene que seguir los siguientes pasos:
+
+### Como correr la app
+
+1. clonar el repo
+2. abrir la carpeta en la linea de commando y correr `npm -i` esto es para instalar las dependencias del projecto a nivel local
+3. correr el projecto usando `npm run` desde la linea de commandos.
+
+
+
+### frameworks utilizados
+
+
+
+
+
