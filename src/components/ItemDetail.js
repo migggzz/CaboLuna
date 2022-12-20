@@ -1,14 +1,17 @@
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { CartContext } from "../context/cartContext";
+import { useGetItemImg } from "../hooks/useGetItemImg";
 import { ItemCount } from "./ItemCount";
+import { Loading } from "./Loading";
 
 const ItemDetail = ({ item }) => {
-  const { addItem } = useContext(CartContext);
+  const { addItem, isInCart } = useContext(CartContext);
   const navigate = useNavigate();
   const [count, setCount] = useState(1);
   const [currentStock, setCurrentStock] = useState(item.stock);
   const maxQuantity = currentStock;
+  const img = useGetItemImg(item.img);
 
   function handleCount(type) {
     if (type === "plus" && count < maxQuantity) setCount(count + 1);
@@ -31,7 +34,11 @@ const ItemDetail = ({ item }) => {
     <div className="flex w-5/6 bg-white rounded p-10 transition-all shadow hover:shadow-lg">
       {/* Item image */}
       <div className="flex justify-center w-1/2">
-        <img className="max-h-[500px]" src={item.img} alt={item.name} />
+        {!img ? (
+          <Loading />
+        ) : (
+          <img className="max-h-[500px]" src={img} alt={item.name} />
+        )}
       </div>
 
       {/* Item description */}
@@ -61,8 +68,9 @@ const ItemDetail = ({ item }) => {
               Agregar al carrito
             </button>
             <button
+              disabled={!isInCart(item.id)}
               onClick={handleCheckout}
-              className="w-4/5 bg-gray-800 text-white px-4 py-2 mt-2 rounded"
+              className="w-4/5 bg-gray-800 text-white px-4 py-2 mt-2 rounded disabled:opacity-50"
             >
               Finalizar Compra
             </button>
