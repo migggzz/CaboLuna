@@ -50,6 +50,8 @@ const CheckoutView = () => {
       })
       .catch((err) => console.error({ err }))
       .finally(() => {});
+
+      alert(`${name} con telefono ${phone} y correo ${email} ha hecho una compra por el total de ${totalAmount}`  );
   };
 
   useEffect(() => {
@@ -65,7 +67,7 @@ const CheckoutView = () => {
           .then(() => {
             clear();
             setIsLoading(false);
-            alert("Compra finalizada");
+            alert("Compra finalizada " );
             navigate("/");
           })
           .catch((err) => console.error(err));
