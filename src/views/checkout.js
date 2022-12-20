@@ -67,7 +67,7 @@ const CheckoutView = () => {
           .then(() => {
             clear();
             setIsLoading(false);
-            alert("Compra finalizada " );
+            // alert("Compra finalizada " );
             navigate("/");
           })
           .catch((err) => console.error(err));
