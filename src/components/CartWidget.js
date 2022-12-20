@@ -39,3 +39,5 @@ const CartWidget = () => {
 };
 
 export default CartWidget;
+
+// Array.forEach(id => {Array.id == id? Update})
