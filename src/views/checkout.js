@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Layout } from "../components/Layout";
 import { CartContext } from "../context/cartContext";
 
-// firebase
+// funciones de firebase que se van a usar
 import {
   addDoc,
   collection,
