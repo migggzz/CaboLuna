@@ -6,8 +6,8 @@ export const Item = ({ product, quantityAdded }) => {
   const navigate = useNavigate();
   const img = useGetItemImg(product.img);
 
-  const description = product.description.slice(0, 30);
-  const title = product.name.slice(0, 20);
+  const description = product.description//.slice(0, 30);
+  const title = product.name//.slice(0, 20);
 
   function handleNavigate() {
     navigate(`/item/${product.id}`);
