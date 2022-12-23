@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import CartWidget from "./CartWidget";
-
+//inserto comentario para poder hacer commit
 const NavbarComponent = () => {
   return (
     <nav className="bg-green-800">
