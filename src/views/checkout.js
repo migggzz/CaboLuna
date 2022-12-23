@@ -1,7 +1,8 @@
 import { useContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import {useNavigate } from "react-router-dom";
 import { Layout } from "../components/Layout";
 import { CartContext } from "../context/cartContext";
+import Swal from "sweetalert2";
 
 // funciones de firebase que se van a usar
 import {
@@ -51,7 +52,14 @@ const CheckoutView = () => {
       .catch((err) => console.error({ err }))
       .finally(() => {});
 
-      alert(`${name} con telefono ${phone} y correo ${email} ha hecho una compra por el total de ${totalAmount}`  );
+      Swal.fire({
+        html:`${name} <br> con telefono ${phone} <br> correo ${email} <br> ha hecho una compra por el total de ${totalAmount}`,
+        icon: 'success',
+        title: 'Compra Realizada',
+        showConfirmButton: true,
+      })
+
+
   };
 
   useEffect(() => {
@@ -67,8 +75,7 @@ const CheckoutView = () => {
           .then(() => {
             clear();
             setIsLoading(false);
-            // alert("Compra finalizada " );
-            navigate("/");
+            navigate("/" );
           })
           .catch((err) => console.error(err));
       });

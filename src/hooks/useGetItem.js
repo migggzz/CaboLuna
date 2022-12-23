@@ -14,13 +14,13 @@ export const useGetItem = () => {
   const [data, setData] = useState(null);
   const { category, id } = useParams();
 
-  // Firebase Methods
+  // Metodos de firebase
   const db = getFirestore();
   const refProps = [db, "items"];
   const ref = id ? doc(...refProps, id) : collection(...refProps);
 
   useEffect(() => {
-    // If we have a category in the browser path
+    // Revisa si tenemos categoria y si es asi, filtra por categoria
     if (category) {
       const q = query(ref, where("category", "==", category));
       getDocs(q).then((result) =>
@@ -30,7 +30,7 @@ export const useGetItem = () => {
       return;
     }
 
-    // If we need get only 1 item
+    // se usa si solo queremos un item
     if (id) {
       getDoc(ref)
         .then((item) => {
