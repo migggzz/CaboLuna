@@ -13,6 +13,8 @@ export const Inicio =() => {
             <br></br>
             <br></br>
             <p className="text-2xl text-center">En esta pagina podras encontrar todo lo que necesitas para tu ingesta de CBD</p>
+            <br></br>
+            <br></br>
         </div>
     )
 }
